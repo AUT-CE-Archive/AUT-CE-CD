@@ -1,0 +1,2183 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> IDENTIFIER ASSIGN expression
+Rule 2     statement -> expression
+Rule 3     expression -> expression PLUS expression
+Rule 4     expression -> expression MINUS expression
+Rule 5     expression -> expression DIVIDE expression
+Rule 6     expression -> expression TIMES expression
+Rule 7     expression -> expression MOD expression
+Rule 8     expression -> NOT expression
+Rule 9     expression -> expression AND expression
+Rule 10    expression -> expression OR expression
+Rule 11    expression -> expression BIGGER expression
+Rule 12    expression -> expression SMALLER expression
+Rule 13    expression -> expression EQUAL expression
+Rule 14    expression -> expression NOTEQUAL expression
+Rule 15    expression -> expression BIGGEREQUAL expression
+Rule 16    expression -> expression SMALLEREQUAL expression
+Rule 17    expression -> MINUS expression
+Rule 18    expression -> LPAREN expression RPAREN
+Rule 19    expression -> INTEGER
+Rule 20    expression -> FLOAT
+Rule 21    expression -> IDENTIFIER
+Rule 22    statement -> IF expression THEN statement
+Rule 23    statement -> IF expression THEN statement ELSE statement
+Rule 24    statement -> WHILE expression DO statement
+Rule 25    statement -> PRINT expression
+
+Terminals, with rules where they appear
+
+AND                  : 9
+ASSIGN               : 1
+BIGGER               : 11
+BIGGEREQUAL          : 15
+DIVIDE               : 5
+DO                   : 24
+ELSE                 : 23
+EQUAL                : 13
+FLOAT                : 20
+IDENTIFIER           : 1 21
+IF                   : 22 23
+INTEGER              : 19
+LPAREN               : 18
+MINUS                : 4 17
+MOD                  : 7
+NOT                  : 8
+NOTEQUAL             : 14
+OR                   : 10
+PLUS                 : 3
+PRINT                : 25
+RPAREN               : 18
+SMALLER              : 12
+SMALLEREQUAL         : 16
+THEN                 : 22 23
+TIMES                : 6
+WHILE                : 24
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 2 3 3 4 4 5 5 6 6 7 7 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 18 22 23 24 25
+statement            : 22 23 23 24 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . IDENTIFIER ASSIGN expression
+    (2) statement -> . expression
+    (22) statement -> . IF expression THEN statement
+    (23) statement -> . IF expression THEN statement ELSE statement
+    (24) statement -> . WHILE expression DO statement
+    (25) statement -> . PRINT expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 2
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    PRINT           shift and go to state 6
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    statement                      shift and go to state 1
+    expression                     shift and go to state 3
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> IDENTIFIER . ASSIGN expression
+    (21) expression -> IDENTIFIER .
+
+    ASSIGN          shift and go to state 12
+    PLUS            reduce using rule 21 (expression -> IDENTIFIER .)
+    MINUS           reduce using rule 21 (expression -> IDENTIFIER .)
+    DIVIDE          reduce using rule 21 (expression -> IDENTIFIER .)
+    TIMES           reduce using rule 21 (expression -> IDENTIFIER .)
+    MOD             reduce using rule 21 (expression -> IDENTIFIER .)
+    AND             reduce using rule 21 (expression -> IDENTIFIER .)
+    OR              reduce using rule 21 (expression -> IDENTIFIER .)
+    BIGGER          reduce using rule 21 (expression -> IDENTIFIER .)
+    SMALLER         reduce using rule 21 (expression -> IDENTIFIER .)
+    EQUAL           reduce using rule 21 (expression -> IDENTIFIER .)
+    NOTEQUAL        reduce using rule 21 (expression -> IDENTIFIER .)
+    BIGGEREQUAL     reduce using rule 21 (expression -> IDENTIFIER .)
+    SMALLEREQUAL    reduce using rule 21 (expression -> IDENTIFIER .)
+    $end            reduce using rule 21 (expression -> IDENTIFIER .)
+    ELSE            reduce using rule 21 (expression -> IDENTIFIER .)
+
+
+state 3
+
+    (2) statement -> expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    $end            reduce using rule 2 (statement -> expression .)
+    ELSE            reduce using rule 2 (statement -> expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+
+state 4
+
+    (22) statement -> IF . expression THEN statement
+    (23) statement -> IF . expression THEN statement ELSE statement
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 26
+
+state 5
+
+    (24) statement -> WHILE . expression DO statement
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 28
+
+state 6
+
+    (25) statement -> PRINT . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 29
+
+state 7
+
+    (17) expression -> MINUS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 30
+
+state 8
+
+    (8) expression -> NOT . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 31
+
+state 9
+
+    (18) expression -> LPAREN . expression RPAREN
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 32
+
+state 10
+
+    (19) expression -> INTEGER .
+
+    PLUS            reduce using rule 19 (expression -> INTEGER .)
+    MINUS           reduce using rule 19 (expression -> INTEGER .)
+    DIVIDE          reduce using rule 19 (expression -> INTEGER .)
+    TIMES           reduce using rule 19 (expression -> INTEGER .)
+    MOD             reduce using rule 19 (expression -> INTEGER .)
+    AND             reduce using rule 19 (expression -> INTEGER .)
+    OR              reduce using rule 19 (expression -> INTEGER .)
+    BIGGER          reduce using rule 19 (expression -> INTEGER .)
+    SMALLER         reduce using rule 19 (expression -> INTEGER .)
+    EQUAL           reduce using rule 19 (expression -> INTEGER .)
+    NOTEQUAL        reduce using rule 19 (expression -> INTEGER .)
+    BIGGEREQUAL     reduce using rule 19 (expression -> INTEGER .)
+    SMALLEREQUAL    reduce using rule 19 (expression -> INTEGER .)
+    $end            reduce using rule 19 (expression -> INTEGER .)
+    THEN            reduce using rule 19 (expression -> INTEGER .)
+    DO              reduce using rule 19 (expression -> INTEGER .)
+    ELSE            reduce using rule 19 (expression -> INTEGER .)
+    RPAREN          reduce using rule 19 (expression -> INTEGER .)
+
+
+state 11
+
+    (20) expression -> FLOAT .
+
+    PLUS            reduce using rule 20 (expression -> FLOAT .)
+    MINUS           reduce using rule 20 (expression -> FLOAT .)
+    DIVIDE          reduce using rule 20 (expression -> FLOAT .)
+    TIMES           reduce using rule 20 (expression -> FLOAT .)
+    MOD             reduce using rule 20 (expression -> FLOAT .)
+    AND             reduce using rule 20 (expression -> FLOAT .)
+    OR              reduce using rule 20 (expression -> FLOAT .)
+    BIGGER          reduce using rule 20 (expression -> FLOAT .)
+    SMALLER         reduce using rule 20 (expression -> FLOAT .)
+    EQUAL           reduce using rule 20 (expression -> FLOAT .)
+    NOTEQUAL        reduce using rule 20 (expression -> FLOAT .)
+    BIGGEREQUAL     reduce using rule 20 (expression -> FLOAT .)
+    SMALLEREQUAL    reduce using rule 20 (expression -> FLOAT .)
+    $end            reduce using rule 20 (expression -> FLOAT .)
+    THEN            reduce using rule 20 (expression -> FLOAT .)
+    DO              reduce using rule 20 (expression -> FLOAT .)
+    ELSE            reduce using rule 20 (expression -> FLOAT .)
+    RPAREN          reduce using rule 20 (expression -> FLOAT .)
+
+
+state 12
+
+    (1) statement -> IDENTIFIER ASSIGN . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 33
+
+state 13
+
+    (3) expression -> expression PLUS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 34
+
+state 14
+
+    (4) expression -> expression MINUS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 35
+
+state 15
+
+    (5) expression -> expression DIVIDE . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 36
+
+state 16
+
+    (6) expression -> expression TIMES . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 37
+
+state 17
+
+    (7) expression -> expression MOD . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 38
+
+state 18
+
+    (9) expression -> expression AND . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 39
+
+state 19
+
+    (10) expression -> expression OR . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 40
+
+state 20
+
+    (11) expression -> expression BIGGER . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 41
+
+state 21
+
+    (12) expression -> expression SMALLER . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 42
+
+state 22
+
+    (13) expression -> expression EQUAL . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 43
+
+state 23
+
+    (14) expression -> expression NOTEQUAL . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 44
+
+state 24
+
+    (15) expression -> expression BIGGEREQUAL . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 45
+
+state 25
+
+    (16) expression -> expression SMALLEREQUAL . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+    IDENTIFIER      shift and go to state 27
+
+    expression                     shift and go to state 46
+
+state 26
+
+    (22) statement -> IF expression . THEN statement
+    (23) statement -> IF expression . THEN statement ELSE statement
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    THEN            shift and go to state 47
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+
+state 27
+
+    (21) expression -> IDENTIFIER .
+
+    THEN            reduce using rule 21 (expression -> IDENTIFIER .)
+    PLUS            reduce using rule 21 (expression -> IDENTIFIER .)
+    MINUS           reduce using rule 21 (expression -> IDENTIFIER .)
+    DIVIDE          reduce using rule 21 (expression -> IDENTIFIER .)
+    TIMES           reduce using rule 21 (expression -> IDENTIFIER .)
+    MOD             reduce using rule 21 (expression -> IDENTIFIER .)
+    AND             reduce using rule 21 (expression -> IDENTIFIER .)
+    OR              reduce using rule 21 (expression -> IDENTIFIER .)
+    BIGGER          reduce using rule 21 (expression -> IDENTIFIER .)
+    SMALLER         reduce using rule 21 (expression -> IDENTIFIER .)
+    EQUAL           reduce using rule 21 (expression -> IDENTIFIER .)
+    NOTEQUAL        reduce using rule 21 (expression -> IDENTIFIER .)
+    BIGGEREQUAL     reduce using rule 21 (expression -> IDENTIFIER .)
+    SMALLEREQUAL    reduce using rule 21 (expression -> IDENTIFIER .)
+    DO              reduce using rule 21 (expression -> IDENTIFIER .)
+    $end            reduce using rule 21 (expression -> IDENTIFIER .)
+    ELSE            reduce using rule 21 (expression -> IDENTIFIER .)
+    RPAREN          reduce using rule 21 (expression -> IDENTIFIER .)
+
+
+state 28
+
+    (24) statement -> WHILE expression . DO statement
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    DO              shift and go to state 48
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+
+state 29
+
+    (25) statement -> PRINT expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    $end            reduce using rule 25 (statement -> PRINT expression .)
+    ELSE            reduce using rule 25 (statement -> PRINT expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+
+state 30
+
+    (17) expression -> MINUS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    PLUS            reduce using rule 17 (expression -> MINUS expression .)
+    MINUS           reduce using rule 17 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 17 (expression -> MINUS expression .)
+    TIMES           reduce using rule 17 (expression -> MINUS expression .)
+    MOD             reduce using rule 17 (expression -> MINUS expression .)
+    BIGGER          reduce using rule 17 (expression -> MINUS expression .)
+    SMALLER         reduce using rule 17 (expression -> MINUS expression .)
+    EQUAL           reduce using rule 17 (expression -> MINUS expression .)
+    NOTEQUAL        reduce using rule 17 (expression -> MINUS expression .)
+    BIGGEREQUAL     reduce using rule 17 (expression -> MINUS expression .)
+    SMALLEREQUAL    reduce using rule 17 (expression -> MINUS expression .)
+    $end            reduce using rule 17 (expression -> MINUS expression .)
+    THEN            reduce using rule 17 (expression -> MINUS expression .)
+    DO              reduce using rule 17 (expression -> MINUS expression .)
+    ELSE            reduce using rule 17 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 17 (expression -> MINUS expression .)
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+
+  ! AND             [ reduce using rule 17 (expression -> MINUS expression .) ]
+  ! OR              [ reduce using rule 17 (expression -> MINUS expression .) ]
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! MOD             [ shift and go to state 17 ]
+  ! BIGGER          [ shift and go to state 20 ]
+  ! SMALLER         [ shift and go to state 21 ]
+  ! EQUAL           [ shift and go to state 22 ]
+  ! NOTEQUAL        [ shift and go to state 23 ]
+  ! BIGGEREQUAL     [ shift and go to state 24 ]
+  ! SMALLEREQUAL    [ shift and go to state 25 ]
+
+
+state 31
+
+    (8) expression -> NOT expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for BIGGER resolved as shift
+  ! shift/reduce conflict for SMALLER resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for BIGGEREQUAL resolved as shift
+  ! shift/reduce conflict for SMALLEREQUAL resolved as shift
+    $end            reduce using rule 8 (expression -> NOT expression .)
+    THEN            reduce using rule 8 (expression -> NOT expression .)
+    DO              reduce using rule 8 (expression -> NOT expression .)
+    ELSE            reduce using rule 8 (expression -> NOT expression .)
+    RPAREN          reduce using rule 8 (expression -> NOT expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+  ! PLUS            [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! MINUS           [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! DIVIDE          [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! TIMES           [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! MOD             [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! AND             [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! OR              [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! BIGGER          [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! SMALLER         [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! EQUAL           [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! NOTEQUAL        [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! BIGGEREQUAL     [ reduce using rule 8 (expression -> NOT expression .) ]
+  ! SMALLEREQUAL    [ reduce using rule 8 (expression -> NOT expression .) ]
+
+
+state 32
+
+    (18) expression -> LPAREN expression . RPAREN
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    RPAREN          shift and go to state 49
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+
+state 33
+
+    (1) statement -> IDENTIFIER ASSIGN expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    $end            reduce using rule 1 (statement -> IDENTIFIER ASSIGN expression .)
+    ELSE            reduce using rule 1 (statement -> IDENTIFIER ASSIGN expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+
+state 34
+
+    (3) expression -> expression PLUS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    PLUS            reduce using rule 3 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 3 (expression -> expression PLUS expression .)
+    BIGGER          reduce using rule 3 (expression -> expression PLUS expression .)
+    SMALLER         reduce using rule 3 (expression -> expression PLUS expression .)
+    EQUAL           reduce using rule 3 (expression -> expression PLUS expression .)
+    NOTEQUAL        reduce using rule 3 (expression -> expression PLUS expression .)
+    BIGGEREQUAL     reduce using rule 3 (expression -> expression PLUS expression .)
+    SMALLEREQUAL    reduce using rule 3 (expression -> expression PLUS expression .)
+    $end            reduce using rule 3 (expression -> expression PLUS expression .)
+    THEN            reduce using rule 3 (expression -> expression PLUS expression .)
+    DO              reduce using rule 3 (expression -> expression PLUS expression .)
+    ELSE            reduce using rule 3 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 3 (expression -> expression PLUS expression .)
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+
+  ! DIVIDE          [ reduce using rule 3 (expression -> expression PLUS expression .) ]
+  ! TIMES           [ reduce using rule 3 (expression -> expression PLUS expression .) ]
+  ! MOD             [ reduce using rule 3 (expression -> expression PLUS expression .) ]
+  ! AND             [ reduce using rule 3 (expression -> expression PLUS expression .) ]
+  ! OR              [ reduce using rule 3 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 14 ]
+  ! BIGGER          [ shift and go to state 20 ]
+  ! SMALLER         [ shift and go to state 21 ]
+  ! EQUAL           [ shift and go to state 22 ]
+  ! NOTEQUAL        [ shift and go to state 23 ]
+  ! BIGGEREQUAL     [ shift and go to state 24 ]
+  ! SMALLEREQUAL    [ shift and go to state 25 ]
+
+
+state 35
+
+    (4) expression -> expression MINUS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    PLUS            reduce using rule 4 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 4 (expression -> expression MINUS expression .)
+    BIGGER          reduce using rule 4 (expression -> expression MINUS expression .)
+    SMALLER         reduce using rule 4 (expression -> expression MINUS expression .)
+    EQUAL           reduce using rule 4 (expression -> expression MINUS expression .)
+    NOTEQUAL        reduce using rule 4 (expression -> expression MINUS expression .)
+    BIGGEREQUAL     reduce using rule 4 (expression -> expression MINUS expression .)
+    SMALLEREQUAL    reduce using rule 4 (expression -> expression MINUS expression .)
+    $end            reduce using rule 4 (expression -> expression MINUS expression .)
+    THEN            reduce using rule 4 (expression -> expression MINUS expression .)
+    DO              reduce using rule 4 (expression -> expression MINUS expression .)
+    ELSE            reduce using rule 4 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 4 (expression -> expression MINUS expression .)
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+
+  ! DIVIDE          [ reduce using rule 4 (expression -> expression MINUS expression .) ]
+  ! TIMES           [ reduce using rule 4 (expression -> expression MINUS expression .) ]
+  ! MOD             [ reduce using rule 4 (expression -> expression MINUS expression .) ]
+  ! AND             [ reduce using rule 4 (expression -> expression MINUS expression .) ]
+  ! OR              [ reduce using rule 4 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 14 ]
+  ! BIGGER          [ shift and go to state 20 ]
+  ! SMALLER         [ shift and go to state 21 ]
+  ! EQUAL           [ shift and go to state 22 ]
+  ! NOTEQUAL        [ shift and go to state 23 ]
+  ! BIGGEREQUAL     [ shift and go to state 24 ]
+  ! SMALLEREQUAL    [ shift and go to state 25 ]
+
+
+state 36
+
+    (5) expression -> expression DIVIDE expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    PLUS            reduce using rule 5 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 5 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 5 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 5 (expression -> expression DIVIDE expression .)
+    MOD             reduce using rule 5 (expression -> expression DIVIDE expression .)
+    BIGGER          reduce using rule 5 (expression -> expression DIVIDE expression .)
+    SMALLER         reduce using rule 5 (expression -> expression DIVIDE expression .)
+    EQUAL           reduce using rule 5 (expression -> expression DIVIDE expression .)
+    NOTEQUAL        reduce using rule 5 (expression -> expression DIVIDE expression .)
+    BIGGEREQUAL     reduce using rule 5 (expression -> expression DIVIDE expression .)
+    SMALLEREQUAL    reduce using rule 5 (expression -> expression DIVIDE expression .)
+    $end            reduce using rule 5 (expression -> expression DIVIDE expression .)
+    THEN            reduce using rule 5 (expression -> expression DIVIDE expression .)
+    DO              reduce using rule 5 (expression -> expression DIVIDE expression .)
+    ELSE            reduce using rule 5 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 5 (expression -> expression DIVIDE expression .)
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+
+  ! AND             [ reduce using rule 5 (expression -> expression DIVIDE expression .) ]
+  ! OR              [ reduce using rule 5 (expression -> expression DIVIDE expression .) ]
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! MOD             [ shift and go to state 17 ]
+  ! BIGGER          [ shift and go to state 20 ]
+  ! SMALLER         [ shift and go to state 21 ]
+  ! EQUAL           [ shift and go to state 22 ]
+  ! NOTEQUAL        [ shift and go to state 23 ]
+  ! BIGGEREQUAL     [ shift and go to state 24 ]
+  ! SMALLEREQUAL    [ shift and go to state 25 ]
+
+
+state 37
+
+    (6) expression -> expression TIMES expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    PLUS            reduce using rule 6 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 6 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 6 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 6 (expression -> expression TIMES expression .)
+    MOD             reduce using rule 6 (expression -> expression TIMES expression .)
+    BIGGER          reduce using rule 6 (expression -> expression TIMES expression .)
+    SMALLER         reduce using rule 6 (expression -> expression TIMES expression .)
+    EQUAL           reduce using rule 6 (expression -> expression TIMES expression .)
+    NOTEQUAL        reduce using rule 6 (expression -> expression TIMES expression .)
+    BIGGEREQUAL     reduce using rule 6 (expression -> expression TIMES expression .)
+    SMALLEREQUAL    reduce using rule 6 (expression -> expression TIMES expression .)
+    $end            reduce using rule 6 (expression -> expression TIMES expression .)
+    THEN            reduce using rule 6 (expression -> expression TIMES expression .)
+    DO              reduce using rule 6 (expression -> expression TIMES expression .)
+    ELSE            reduce using rule 6 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 6 (expression -> expression TIMES expression .)
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+
+  ! AND             [ reduce using rule 6 (expression -> expression TIMES expression .) ]
+  ! OR              [ reduce using rule 6 (expression -> expression TIMES expression .) ]
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! MOD             [ shift and go to state 17 ]
+  ! BIGGER          [ shift and go to state 20 ]
+  ! SMALLER         [ shift and go to state 21 ]
+  ! EQUAL           [ shift and go to state 22 ]
+  ! NOTEQUAL        [ shift and go to state 23 ]
+  ! BIGGEREQUAL     [ shift and go to state 24 ]
+  ! SMALLEREQUAL    [ shift and go to state 25 ]
+
+
+state 38
+
+    (7) expression -> expression MOD expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    PLUS            reduce using rule 7 (expression -> expression MOD expression .)
+    MINUS           reduce using rule 7 (expression -> expression MOD expression .)
+    DIVIDE          reduce using rule 7 (expression -> expression MOD expression .)
+    TIMES           reduce using rule 7 (expression -> expression MOD expression .)
+    MOD             reduce using rule 7 (expression -> expression MOD expression .)
+    BIGGER          reduce using rule 7 (expression -> expression MOD expression .)
+    SMALLER         reduce using rule 7 (expression -> expression MOD expression .)
+    EQUAL           reduce using rule 7 (expression -> expression MOD expression .)
+    NOTEQUAL        reduce using rule 7 (expression -> expression MOD expression .)
+    BIGGEREQUAL     reduce using rule 7 (expression -> expression MOD expression .)
+    SMALLEREQUAL    reduce using rule 7 (expression -> expression MOD expression .)
+    $end            reduce using rule 7 (expression -> expression MOD expression .)
+    THEN            reduce using rule 7 (expression -> expression MOD expression .)
+    DO              reduce using rule 7 (expression -> expression MOD expression .)
+    ELSE            reduce using rule 7 (expression -> expression MOD expression .)
+    RPAREN          reduce using rule 7 (expression -> expression MOD expression .)
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+
+  ! AND             [ reduce using rule 7 (expression -> expression MOD expression .) ]
+  ! OR              [ reduce using rule 7 (expression -> expression MOD expression .) ]
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! MOD             [ shift and go to state 17 ]
+  ! BIGGER          [ shift and go to state 20 ]
+  ! SMALLER         [ shift and go to state 21 ]
+  ! EQUAL           [ shift and go to state 22 ]
+  ! NOTEQUAL        [ shift and go to state 23 ]
+  ! BIGGEREQUAL     [ shift and go to state 24 ]
+  ! SMALLEREQUAL    [ shift and go to state 25 ]
+
+
+state 39
+
+    (9) expression -> expression AND expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    PLUS            reduce using rule 9 (expression -> expression AND expression .)
+    MINUS           reduce using rule 9 (expression -> expression AND expression .)
+    DIVIDE          reduce using rule 9 (expression -> expression AND expression .)
+    TIMES           reduce using rule 9 (expression -> expression AND expression .)
+    MOD             reduce using rule 9 (expression -> expression AND expression .)
+    AND             reduce using rule 9 (expression -> expression AND expression .)
+    OR              reduce using rule 9 (expression -> expression AND expression .)
+    BIGGER          reduce using rule 9 (expression -> expression AND expression .)
+    SMALLER         reduce using rule 9 (expression -> expression AND expression .)
+    EQUAL           reduce using rule 9 (expression -> expression AND expression .)
+    NOTEQUAL        reduce using rule 9 (expression -> expression AND expression .)
+    BIGGEREQUAL     reduce using rule 9 (expression -> expression AND expression .)
+    SMALLEREQUAL    reduce using rule 9 (expression -> expression AND expression .)
+    $end            reduce using rule 9 (expression -> expression AND expression .)
+    THEN            reduce using rule 9 (expression -> expression AND expression .)
+    DO              reduce using rule 9 (expression -> expression AND expression .)
+    ELSE            reduce using rule 9 (expression -> expression AND expression .)
+    RPAREN          reduce using rule 9 (expression -> expression AND expression .)
+
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! MOD             [ shift and go to state 17 ]
+  ! AND             [ shift and go to state 18 ]
+  ! OR              [ shift and go to state 19 ]
+  ! BIGGER          [ shift and go to state 20 ]
+  ! SMALLER         [ shift and go to state 21 ]
+  ! EQUAL           [ shift and go to state 22 ]
+  ! NOTEQUAL        [ shift and go to state 23 ]
+  ! BIGGEREQUAL     [ shift and go to state 24 ]
+  ! SMALLEREQUAL    [ shift and go to state 25 ]
+
+
+state 40
+
+    (10) expression -> expression OR expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+    PLUS            reduce using rule 10 (expression -> expression OR expression .)
+    MINUS           reduce using rule 10 (expression -> expression OR expression .)
+    DIVIDE          reduce using rule 10 (expression -> expression OR expression .)
+    TIMES           reduce using rule 10 (expression -> expression OR expression .)
+    MOD             reduce using rule 10 (expression -> expression OR expression .)
+    AND             reduce using rule 10 (expression -> expression OR expression .)
+    OR              reduce using rule 10 (expression -> expression OR expression .)
+    BIGGER          reduce using rule 10 (expression -> expression OR expression .)
+    SMALLER         reduce using rule 10 (expression -> expression OR expression .)
+    EQUAL           reduce using rule 10 (expression -> expression OR expression .)
+    NOTEQUAL        reduce using rule 10 (expression -> expression OR expression .)
+    BIGGEREQUAL     reduce using rule 10 (expression -> expression OR expression .)
+    SMALLEREQUAL    reduce using rule 10 (expression -> expression OR expression .)
+    $end            reduce using rule 10 (expression -> expression OR expression .)
+    THEN            reduce using rule 10 (expression -> expression OR expression .)
+    DO              reduce using rule 10 (expression -> expression OR expression .)
+    ELSE            reduce using rule 10 (expression -> expression OR expression .)
+    RPAREN          reduce using rule 10 (expression -> expression OR expression .)
+
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! TIMES           [ shift and go to state 16 ]
+  ! MOD             [ shift and go to state 17 ]
+  ! AND             [ shift and go to state 18 ]
+  ! OR              [ shift and go to state 19 ]
+  ! BIGGER          [ shift and go to state 20 ]
+  ! SMALLER         [ shift and go to state 21 ]
+  ! EQUAL           [ shift and go to state 22 ]
+  ! NOTEQUAL        [ shift and go to state 23 ]
+  ! BIGGEREQUAL     [ shift and go to state 24 ]
+  ! SMALLEREQUAL    [ shift and go to state 25 ]
+
+
+state 41
+
+    (11) expression -> expression BIGGER expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for BIGGER resolved as shift
+  ! shift/reduce conflict for SMALLER resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for BIGGEREQUAL resolved as shift
+  ! shift/reduce conflict for SMALLEREQUAL resolved as shift
+    $end            reduce using rule 11 (expression -> expression BIGGER expression .)
+    THEN            reduce using rule 11 (expression -> expression BIGGER expression .)
+    DO              reduce using rule 11 (expression -> expression BIGGER expression .)
+    ELSE            reduce using rule 11 (expression -> expression BIGGER expression .)
+    RPAREN          reduce using rule 11 (expression -> expression BIGGER expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+  ! PLUS            [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! MINUS           [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! DIVIDE          [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! TIMES           [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! MOD             [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! AND             [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! OR              [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! BIGGER          [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! SMALLER         [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! EQUAL           [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! NOTEQUAL        [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! BIGGEREQUAL     [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+  ! SMALLEREQUAL    [ reduce using rule 11 (expression -> expression BIGGER expression .) ]
+
+
+state 42
+
+    (12) expression -> expression SMALLER expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for BIGGER resolved as shift
+  ! shift/reduce conflict for SMALLER resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for BIGGEREQUAL resolved as shift
+  ! shift/reduce conflict for SMALLEREQUAL resolved as shift
+    $end            reduce using rule 12 (expression -> expression SMALLER expression .)
+    THEN            reduce using rule 12 (expression -> expression SMALLER expression .)
+    DO              reduce using rule 12 (expression -> expression SMALLER expression .)
+    ELSE            reduce using rule 12 (expression -> expression SMALLER expression .)
+    RPAREN          reduce using rule 12 (expression -> expression SMALLER expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+  ! PLUS            [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! MINUS           [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! DIVIDE          [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! TIMES           [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! MOD             [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! AND             [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! OR              [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! BIGGER          [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! SMALLER         [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! EQUAL           [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! NOTEQUAL        [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! BIGGEREQUAL     [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+  ! SMALLEREQUAL    [ reduce using rule 12 (expression -> expression SMALLER expression .) ]
+
+
+state 43
+
+    (13) expression -> expression EQUAL expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for BIGGER resolved as shift
+  ! shift/reduce conflict for SMALLER resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for BIGGEREQUAL resolved as shift
+  ! shift/reduce conflict for SMALLEREQUAL resolved as shift
+    $end            reduce using rule 13 (expression -> expression EQUAL expression .)
+    THEN            reduce using rule 13 (expression -> expression EQUAL expression .)
+    DO              reduce using rule 13 (expression -> expression EQUAL expression .)
+    ELSE            reduce using rule 13 (expression -> expression EQUAL expression .)
+    RPAREN          reduce using rule 13 (expression -> expression EQUAL expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+  ! PLUS            [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! MINUS           [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! TIMES           [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! MOD             [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! AND             [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! OR              [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! BIGGER          [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! SMALLER         [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! EQUAL           [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! NOTEQUAL        [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! BIGGEREQUAL     [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+  ! SMALLEREQUAL    [ reduce using rule 13 (expression -> expression EQUAL expression .) ]
+
+
+state 44
+
+    (14) expression -> expression NOTEQUAL expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for BIGGER resolved as shift
+  ! shift/reduce conflict for SMALLER resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for BIGGEREQUAL resolved as shift
+  ! shift/reduce conflict for SMALLEREQUAL resolved as shift
+    $end            reduce using rule 14 (expression -> expression NOTEQUAL expression .)
+    THEN            reduce using rule 14 (expression -> expression NOTEQUAL expression .)
+    DO              reduce using rule 14 (expression -> expression NOTEQUAL expression .)
+    ELSE            reduce using rule 14 (expression -> expression NOTEQUAL expression .)
+    RPAREN          reduce using rule 14 (expression -> expression NOTEQUAL expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+  ! PLUS            [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! MINUS           [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! TIMES           [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! MOD             [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! AND             [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! OR              [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! BIGGER          [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! SMALLER         [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! EQUAL           [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! NOTEQUAL        [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! BIGGEREQUAL     [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+  ! SMALLEREQUAL    [ reduce using rule 14 (expression -> expression NOTEQUAL expression .) ]
+
+
+state 45
+
+    (15) expression -> expression BIGGEREQUAL expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for BIGGER resolved as shift
+  ! shift/reduce conflict for SMALLER resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for BIGGEREQUAL resolved as shift
+  ! shift/reduce conflict for SMALLEREQUAL resolved as shift
+    $end            reduce using rule 15 (expression -> expression BIGGEREQUAL expression .)
+    THEN            reduce using rule 15 (expression -> expression BIGGEREQUAL expression .)
+    DO              reduce using rule 15 (expression -> expression BIGGEREQUAL expression .)
+    ELSE            reduce using rule 15 (expression -> expression BIGGEREQUAL expression .)
+    RPAREN          reduce using rule 15 (expression -> expression BIGGEREQUAL expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+  ! PLUS            [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! MINUS           [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! TIMES           [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! MOD             [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! AND             [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! OR              [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! BIGGER          [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! SMALLER         [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! EQUAL           [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! NOTEQUAL        [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! BIGGEREQUAL     [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+  ! SMALLEREQUAL    [ reduce using rule 15 (expression -> expression BIGGEREQUAL expression .) ]
+
+
+state 46
+
+    (16) expression -> expression SMALLEREQUAL expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . DIVIDE expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . MOD expression
+    (9) expression -> expression . AND expression
+    (10) expression -> expression . OR expression
+    (11) expression -> expression . BIGGER expression
+    (12) expression -> expression . SMALLER expression
+    (13) expression -> expression . EQUAL expression
+    (14) expression -> expression . NOTEQUAL expression
+    (15) expression -> expression . BIGGEREQUAL expression
+    (16) expression -> expression . SMALLEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for BIGGER resolved as shift
+  ! shift/reduce conflict for SMALLER resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for BIGGEREQUAL resolved as shift
+  ! shift/reduce conflict for SMALLEREQUAL resolved as shift
+    $end            reduce using rule 16 (expression -> expression SMALLEREQUAL expression .)
+    THEN            reduce using rule 16 (expression -> expression SMALLEREQUAL expression .)
+    DO              reduce using rule 16 (expression -> expression SMALLEREQUAL expression .)
+    ELSE            reduce using rule 16 (expression -> expression SMALLEREQUAL expression .)
+    RPAREN          reduce using rule 16 (expression -> expression SMALLEREQUAL expression .)
+    PLUS            shift and go to state 13
+    MINUS           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    TIMES           shift and go to state 16
+    MOD             shift and go to state 17
+    AND             shift and go to state 18
+    OR              shift and go to state 19
+    BIGGER          shift and go to state 20
+    SMALLER         shift and go to state 21
+    EQUAL           shift and go to state 22
+    NOTEQUAL        shift and go to state 23
+    BIGGEREQUAL     shift and go to state 24
+    SMALLEREQUAL    shift and go to state 25
+
+  ! PLUS            [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! MINUS           [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! TIMES           [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! MOD             [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! AND             [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! OR              [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! BIGGER          [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! SMALLER         [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! EQUAL           [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! NOTEQUAL        [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! BIGGEREQUAL     [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+  ! SMALLEREQUAL    [ reduce using rule 16 (expression -> expression SMALLEREQUAL expression .) ]
+
+
+state 47
+
+    (22) statement -> IF expression THEN . statement
+    (23) statement -> IF expression THEN . statement ELSE statement
+    (1) statement -> . IDENTIFIER ASSIGN expression
+    (2) statement -> . expression
+    (22) statement -> . IF expression THEN statement
+    (23) statement -> . IF expression THEN statement ELSE statement
+    (24) statement -> . WHILE expression DO statement
+    (25) statement -> . PRINT expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 2
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    PRINT           shift and go to state 6
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 3
+    statement                      shift and go to state 50
+
+state 48
+
+    (24) statement -> WHILE expression DO . statement
+    (1) statement -> . IDENTIFIER ASSIGN expression
+    (2) statement -> . expression
+    (22) statement -> . IF expression THEN statement
+    (23) statement -> . IF expression THEN statement ELSE statement
+    (24) statement -> . WHILE expression DO statement
+    (25) statement -> . PRINT expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 2
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    PRINT           shift and go to state 6
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 3
+    statement                      shift and go to state 51
+
+state 49
+
+    (18) expression -> LPAREN expression RPAREN .
+
+    PLUS            reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    MOD             reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    AND             reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    OR              reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    BIGGER          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    SMALLER         reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    EQUAL           reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    NOTEQUAL        reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    BIGGEREQUAL     reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    SMALLEREQUAL    reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    $end            reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    THEN            reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    DO              reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    ELSE            reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+
+
+state 50
+
+    (22) statement -> IF expression THEN statement .
+    (23) statement -> IF expression THEN statement . ELSE statement
+
+  ! shift/reduce conflict for ELSE resolved as shift
+    $end            reduce using rule 22 (statement -> IF expression THEN statement .)
+    ELSE            shift and go to state 52
+
+  ! ELSE            [ reduce using rule 22 (statement -> IF expression THEN statement .) ]
+
+
+state 51
+
+    (24) statement -> WHILE expression DO statement .
+
+    $end            reduce using rule 24 (statement -> WHILE expression DO statement .)
+    ELSE            reduce using rule 24 (statement -> WHILE expression DO statement .)
+
+
+state 52
+
+    (23) statement -> IF expression THEN statement ELSE . statement
+    (1) statement -> . IDENTIFIER ASSIGN expression
+    (2) statement -> . expression
+    (22) statement -> . IF expression THEN statement
+    (23) statement -> . IF expression THEN statement ELSE statement
+    (24) statement -> . WHILE expression DO statement
+    (25) statement -> . PRINT expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression DIVIDE expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression MOD expression
+    (8) expression -> . NOT expression
+    (9) expression -> . expression AND expression
+    (10) expression -> . expression OR expression
+    (11) expression -> . expression BIGGER expression
+    (12) expression -> . expression SMALLER expression
+    (13) expression -> . expression EQUAL expression
+    (14) expression -> . expression NOTEQUAL expression
+    (15) expression -> . expression BIGGEREQUAL expression
+    (16) expression -> . expression SMALLEREQUAL expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . INTEGER
+    (20) expression -> . FLOAT
+    (21) expression -> . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 2
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    PRINT           shift and go to state 6
+    NOT             shift and go to state 8
+    MINUS           shift and go to state 7
+    LPAREN          shift and go to state 9
+    INTEGER         shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    expression                     shift and go to state 3
+    statement                      shift and go to state 53
+
+state 53
+
+    (23) statement -> IF expression THEN statement ELSE statement .
+
+    $end            reduce using rule 23 (statement -> IF expression THEN statement ELSE statement .)
+    ELSE            reduce using rule 23 (statement -> IF expression THEN statement ELSE statement .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 31 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 31 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 31 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 31 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 31 resolved as shift
+WARNING: shift/reduce conflict for AND in state 31 resolved as shift
+WARNING: shift/reduce conflict for OR in state 31 resolved as shift
+WARNING: shift/reduce conflict for BIGGER in state 31 resolved as shift
+WARNING: shift/reduce conflict for SMALLER in state 31 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 31 resolved as shift
+WARNING: shift/reduce conflict for NOTEQUAL in state 31 resolved as shift
+WARNING: shift/reduce conflict for BIGGEREQUAL in state 31 resolved as shift
+WARNING: shift/reduce conflict for SMALLEREQUAL in state 31 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 41 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 41 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 41 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 41 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 41 resolved as shift
+WARNING: shift/reduce conflict for AND in state 41 resolved as shift
+WARNING: shift/reduce conflict for OR in state 41 resolved as shift
+WARNING: shift/reduce conflict for BIGGER in state 41 resolved as shift
+WARNING: shift/reduce conflict for SMALLER in state 41 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 41 resolved as shift
+WARNING: shift/reduce conflict for NOTEQUAL in state 41 resolved as shift
+WARNING: shift/reduce conflict for BIGGEREQUAL in state 41 resolved as shift
+WARNING: shift/reduce conflict for SMALLEREQUAL in state 41 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 42 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 42 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 42 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 42 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 42 resolved as shift
+WARNING: shift/reduce conflict for AND in state 42 resolved as shift
+WARNING: shift/reduce conflict for OR in state 42 resolved as shift
+WARNING: shift/reduce conflict for BIGGER in state 42 resolved as shift
+WARNING: shift/reduce conflict for SMALLER in state 42 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 42 resolved as shift
+WARNING: shift/reduce conflict for NOTEQUAL in state 42 resolved as shift
+WARNING: shift/reduce conflict for BIGGEREQUAL in state 42 resolved as shift
+WARNING: shift/reduce conflict for SMALLEREQUAL in state 42 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 43 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 43 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 43 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 43 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 43 resolved as shift
+WARNING: shift/reduce conflict for AND in state 43 resolved as shift
+WARNING: shift/reduce conflict for OR in state 43 resolved as shift
+WARNING: shift/reduce conflict for BIGGER in state 43 resolved as shift
+WARNING: shift/reduce conflict for SMALLER in state 43 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 43 resolved as shift
+WARNING: shift/reduce conflict for NOTEQUAL in state 43 resolved as shift
+WARNING: shift/reduce conflict for BIGGEREQUAL in state 43 resolved as shift
+WARNING: shift/reduce conflict for SMALLEREQUAL in state 43 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 44 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 44 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 44 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 44 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 44 resolved as shift
+WARNING: shift/reduce conflict for AND in state 44 resolved as shift
+WARNING: shift/reduce conflict for OR in state 44 resolved as shift
+WARNING: shift/reduce conflict for BIGGER in state 44 resolved as shift
+WARNING: shift/reduce conflict for SMALLER in state 44 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 44 resolved as shift
+WARNING: shift/reduce conflict for NOTEQUAL in state 44 resolved as shift
+WARNING: shift/reduce conflict for BIGGEREQUAL in state 44 resolved as shift
+WARNING: shift/reduce conflict for SMALLEREQUAL in state 44 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 45 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 45 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 45 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 45 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 45 resolved as shift
+WARNING: shift/reduce conflict for AND in state 45 resolved as shift
+WARNING: shift/reduce conflict for OR in state 45 resolved as shift
+WARNING: shift/reduce conflict for BIGGER in state 45 resolved as shift
+WARNING: shift/reduce conflict for SMALLER in state 45 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 45 resolved as shift
+WARNING: shift/reduce conflict for NOTEQUAL in state 45 resolved as shift
+WARNING: shift/reduce conflict for BIGGEREQUAL in state 45 resolved as shift
+WARNING: shift/reduce conflict for SMALLEREQUAL in state 45 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 46 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 46 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 46 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 46 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 46 resolved as shift
+WARNING: shift/reduce conflict for AND in state 46 resolved as shift
+WARNING: shift/reduce conflict for OR in state 46 resolved as shift
+WARNING: shift/reduce conflict for BIGGER in state 46 resolved as shift
+WARNING: shift/reduce conflict for SMALLER in state 46 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 46 resolved as shift
+WARNING: shift/reduce conflict for NOTEQUAL in state 46 resolved as shift
+WARNING: shift/reduce conflict for BIGGEREQUAL in state 46 resolved as shift
+WARNING: shift/reduce conflict for SMALLEREQUAL in state 46 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 50 resolved as shift
